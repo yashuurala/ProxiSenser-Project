@@ -1,0 +1,15 @@
+1. Connect the ARM Cortex-M3 board to a PC and power supply.
+2. Connectthe HC-SR04 sensor to the board using Female-to-Female jumper wires. The TRIG and ECHO
+pins of the sensor are connected to port pins P0.15 and P0.16 (CNC) respectively. TheVCC and GND
+pins of the sensor are connected to the respective pins on the LPC1768 board.
+3. LCD module is interfaced using FRC cables (CND). Port pins P0.27 and P0.28 are used as Register
+Select and Enable pins. Port pins P0.23 to P0.26 are used as Data Lines for LCD.
+4. The UART, Timer, and LCD modules are initialised.
+5. Configure the TRIG and ECHO pins of the sensor as input and output pins respectively.
+6. Apply a short pulse for 10 microseconds on TRIG to initialise distance measurement.
+7. The timer is started when the ECHO pin becomes HIGH. When the sound wave is received after
+reflection from target object, the ECHO pin becomes low and the timer stops counting. The TC value
+is stored in a variable.
+8. Using this value the distance is computed and displayed on the LCD.
+9. P1.17 is set as output pin and connected to buzzer. If the distance becomes less than 15 cm then
+the buzzer is blown.
